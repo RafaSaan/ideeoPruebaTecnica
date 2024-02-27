@@ -19,7 +19,9 @@
           </div>
           <button class="btnSend" v-if="!isLoading">login</button>
           <div v-else class="lds-ring"><div></div><div></div><div></div><div></div></div>
-          <span v-if="statusMessage">{{ statusMessage }}</span>
+          <div class="">
+            <span class="error" v-if="statusMessage">{{ statusMessage }}</span>
+          </div>
         </form>
       </div>
     </div>
@@ -28,8 +30,11 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router';
 import { loginHelper } from '@/helpers/authHelper'
 
+
+const router = useRouter()
 const credentials = ref({
   email: '',
   password: ''
@@ -42,9 +47,11 @@ async function login() {
   const hasErrors = validateForm()
   if (hasErrors || isLoading.value) return
   isLoading.value = true
-  const success = await loginHelper(credentials)
+  const {success, authenticated} = await loginHelper(credentials.value)
   isLoading.value = false
   if(!success) errorLogin()
+  if(!authenticated) unauthenticatedLogin()
+  if (success) router.push('/dashboard')
 }
 
 function validateForm () {
@@ -59,6 +66,12 @@ function validateForm () {
 
 function errorLogin () {
   statusMessage.value = 'Lo siento, ha ocurrido un error'
+  setTimeout(() => {
+    statusMessage.value = ''
+  }, 2000);
+}
+function unauthenticatedLogin () {
+  statusMessage.value = 'No se ha encontrado un usuario con ese correo y contraseña'
   setTimeout(() => {
     statusMessage.value = ''
   }, 2000);

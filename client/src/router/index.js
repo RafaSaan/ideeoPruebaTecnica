@@ -26,7 +26,7 @@ const router = createRouter({
       name: 'dashboard',
       component: () => import('../views/DashboardView.vue'),
       beforeEnter: (to, from, next) => {
-        const prefix = `grp_token_${import.meta.env.VITE_FOLDER_PATH}`.replace('/', '_')
+        const prefix = 'grp_token_/'.replace('/', '_')
         if (sessionStorage.getItem(prefix)) {
           next();
         } else {
