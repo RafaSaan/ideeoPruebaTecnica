@@ -16,7 +16,6 @@
         <img src="/instagram-brands.svg" alt="instagram icon">
       </div>
     </div>
-
   </footer>
 </template>
 

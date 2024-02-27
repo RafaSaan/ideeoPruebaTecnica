@@ -8,37 +8,39 @@ import FooterSection from '@/components/FooterSection.vue';
 </script>
 
 <template>
-  <MainNavbar/>
-  <div class="mainContainer">
-    <main class="mainView">
-      <div class="mainText">
-        <h1 class="">Invertir en la identidad digital de tu marca no es caro, no hacerlo sí lo es.</h1>
-        <p class="subtitle">En <span>mybrand</span> planeamos, diseñamos y ejecutamos estrategias digitales bajo una
-          metodología comprobada para encontrar la personalidad apropiada de tu marca. Para que pueda ser vista en el mundo virtual.</p>
-      </div>
-      <div class="mainImg">
-        <img src="/mega-iconB.svg" alt="main logo">
-      </div>
-    </main>
+  <div class="">
+    <MainNavbar/>
+    <div class="mainContainer">
+      <main class="mainView">
+        <div class="mainText">
+          <h1 class="">Invertir en la identidad digital de tu marca no es caro, no hacerlo sí lo es.</h1>
+          <p class="subtitle">En <span>mybrand</span> planeamos, diseñamos y ejecutamos estrategias digitales bajo una
+            metodología comprobada para encontrar la personalidad apropiada de tu marca. Para que pueda ser vista en el mundo virtual.</p>
+        </div>
+        <div class="mainImg">
+          <img src="/mega-iconB.svg" alt="main logo">
+        </div>
+      </main>
+    </div>
+    <WhoWeAre/>
+    <div class="separator">
+      <p>Sabemos justo lo que tu MARCA necesita para atraer clientes potenciales</p>
+    </div>
+    <div class="gameSection">
+      <img src="/gameSection.png" alt="">
+    </div>
+    <div class="secondSeparator">
+      <p>
+        En <span>mybrand </span> nos apasiona analizar, imaginar, crear y definir
+        estilos de
+        comunicación que posicionarán a tu marca
+      </p>
+    </div>
+    <AboutUs/>
+    <SuccessStories/>
+    <ContactUs/>
+    <FooterSection/>
   </div>
-  <WhoWeAre/>
-  <div class="separator">
-    <p>Sabemos justo lo que tu MARCA necesita para atraer clientes potenciales</p>
-  </div>
-  <div class="gameSection">
-    <img src="/gameSection.png" alt="">
-  </div>
-  <div class="secondSeparator">
-    <p>
-      En <span>mybrand </span> nos apasiona analizar, imaginar, crear y definir
-      estilos de
-      comunicación que posicionarán a tu marca
-    </p>
-  </div>
-  <AboutUs/>
-  <SuccessStories/>
-  <ContactUs/>
-  <FooterSection/>
 </template>
 <style scoped lang="sass">
 .mainContainer

@@ -2,7 +2,11 @@
   <section class="successStoriesSection">
     <p>Casos de éxito</p>
     <div class="cases">
-      <div class="storieItem" v-for="storie, index in succesStoriesList" :key="index">
+      <div
+        class="storieItem"
+        v-for="storie, index in succesStoriesList"
+        :key="index"
+        @click="goToRoute(storie.name)">
         <img :src="storie.src" :alt="storie.name">
         <h5>{{ storie.name }}</h5>
         <h6>{{ storie.type }}</h6>
@@ -12,11 +16,18 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 const succesStoriesList = [
   { name: 'Absolook', type: 'Beauty', src:'/ABSOLOOK-07.png' },
   { name: 'Biotechlives', type: 'Medical', src:'/ANUNCIO LUMINOSO BIOTECH.png' },
   { name: 'Skin brand', type: 'Medical', src:'/multiple-lightbulb-designs.png' },
 ]
+
+function goToRoute(type) {
+  router.push({name: 'successStories', params: { type}})
+}
 
 </script>
 

@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 const isMenuOpen = ref(false)
 const navList = [
   { name: 'qué Hacemos', href: '' },
@@ -12,8 +15,8 @@ const navList = [
 <template>
   <header>
     <nav class="navbar">
-      <a class="navbarLogo">
-          <img class="imgLogo" src="/logo-mybrand.svg" alt="logo-mybrand" width="200">
+      <a class="navbarLogo" @click="router.push('/')">
+        <img class="imgLogo" src="/logo-mybrand.svg" alt="logo-mybrand" width="200">
       </a>
       <div class="navigationContainer">
         <ul class="navigation" :class="isMenuOpen ? 'isOpen' : ''">
@@ -46,6 +49,7 @@ ul
   margin-left: 3rem
   margin-right: 1rem
   padding: 0.3125rem 0
+  cursor: pointer
 .menuIcon
   color: #000
   width: 2rem
