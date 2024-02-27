@@ -16,6 +16,28 @@ const router = createRouter({
       name: 'successStories',
       component: () => import('../views/SuccessStoriesView.vue')
     },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../views/LoginView.vue')
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: () => import('../views/DashboardView.vue'),
+      beforeEnter: (to, from, next) => {
+        const prefix = `grp_token_${import.meta.env.VITE_FOLDER_PATH}`.replace('/', '_')
+        if (sessionStorage.getItem(prefix)) {
+          next();
+        } else {
+          next('/login');
+        }
+      },
+      children: [
+        // { path: '', name:'dashboard', component: DashboardView },
+        // { path: 'products', name:'dashboard.products', component: ProductsView }
+      ]
+    },
   ]
 })
 router.beforeEach((to, from, next) => {

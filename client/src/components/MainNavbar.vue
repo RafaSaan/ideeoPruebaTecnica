@@ -26,6 +26,7 @@ const navList = [
           <li class="navItem" v-for="navItem, index in navList" :key="index">
             <a  @click="emit('goToSection',navItem.id)" class="navLink">{{ navItem.name }}</a>
           </li>
+          <li class="navItem"><router-link to="/login" class="navLink">login</router-link></li>
           <div class="iconsContactContainer">
             <img src="/facebook-f-brands.svg" alt="facebook icon">
             <img src="/instagram-brands.svg" alt="instagram icon">
