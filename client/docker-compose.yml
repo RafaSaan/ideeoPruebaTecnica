@@ -4,7 +4,7 @@ services:
       build:
         context: .
         dockerfile: Dockerfile
-      container_name: pruebaTecnica
+      container_name: pruebaTecnicaIdeeo
       working_dir: /app
       volumes:
          - '.:/app'
