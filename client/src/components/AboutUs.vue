@@ -1,7 +1,11 @@
 <template>
   <section class="aboutUsSection">
     <div class="aboutUsContainer">
-      <div class="aboutUsInfo">
+      <div class="aboutUsInfo"
+        data-aos="fade-in"
+        data-aos-delay="500"
+        data-aos-duration="500"
+        data-aos-easing="ease-in">
         <h4 class="">Nosotros</h4>
         <p>
           Nos apasiona encontrar la esencia de las marcas y transmitirla hacia su público.
@@ -16,7 +20,11 @@
           su vida a esto: encontrar qué es lo que hace a tu marca ser única.
         </p>
       </div>
-      <div class="aboutUsImg">
+      <div class="aboutUsImg" 
+        data-aos="fade-in"
+        data-aos-delay="600"
+        data-aos-duration="600"
+        data-aos-easing="ease-in">
         <img src="/multiple-lightbulb-designs.png" alt="">
       </div>
     </div>

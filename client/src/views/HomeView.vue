@@ -5,40 +5,76 @@ import AboutUs from '@/components/AboutUs.vue';
 import SuccessStories from '@/components/SuccessStories.vue';
 import ContactUs from '@/components/ContactUs.vue';
 import FooterSection from '@/components/FooterSection.vue';
+
+function goToSection(id) {
+  const position = document.getElementById(id).offsetTop;
+  console.log(position, id)
+  // smooth scroll
+  window.scrollTo({ top: position, behavior: "smooth" });  
+}
 </script>
 
 <template>
   <div class="">
-    <MainNavbar/>
+    <MainNavbar @goToSection="goToSection"/>
     <div class="mainContainer">
-      <main class="mainView">
+      <main class="mainView" id="home">
         <div class="mainText">
-          <h1 class="">Invertir en la identidad digital de tu marca no es caro, no hacerlo sí lo es.</h1>
-          <p class="subtitle">En <span>mybrand</span> planeamos, diseñamos y ejecutamos estrategias digitales bajo una
-            metodología comprobada para encontrar la personalidad apropiada de tu marca. Para que pueda ser vista en el mundo virtual.</p>
+          <h1
+            data-aos="fade-in"
+            data-aos-duration="500"
+            data-aos-easing="ease-in"
+            class="aos-init aos-animate">
+              Invertir en la identidad digital de tu marca no es caro, no hacerlo sí lo es.
+          </h1>
+          <p
+            data-aos="fade-in"
+            data-aos-delay="500"
+            data-aos-duration="500"
+            data-aos-easing="ease-in"
+            class="subtitle"
+            >En <span>mybrand</span> planeamos, diseñamos y ejecutamos estrategias digitales bajo una
+            metodología comprobada para encontrar la personalidad apropiada de tu marca. Para que pueda ser vista en el mundo virtual.
+          </p>
         </div>
         <div class="mainImg">
-          <img src="/mega-iconB.svg" alt="main logo">
+          <img
+            data-aos="fade-in"
+            data-aos-delay="1000"
+            data-aos-easing="ease-in"
+            src="/mega-iconB.svg"
+            alt="main logo"
+          >
         </div>
       </main>
     </div>
-    <WhoWeAre/>
-    <div class="separator">
+    <WhoWeAre id="wwa"/>
+    <div
+      id="wmb"
+      class="separator"
+      data-aos="fade-in"
+      data-aos-delay="500"
+      data-aos-duration="500"
+      data-aos-easing="ease-in">
       <p>Sabemos justo lo que tu MARCA necesita para atraer clientes potenciales</p>
     </div>
     <div class="gameSection">
       <img src="/gameSection.png" alt="">
     </div>
     <div class="secondSeparator">
-      <p>
+      <p
+        data-aos="fade-in"
+        data-aos-delay="500"
+        data-aos-duration="500"
+        data-aos-easing="ease-in">
         En <span>mybrand </span> nos apasiona analizar, imaginar, crear y definir
         estilos de
         comunicación que posicionarán a tu marca
       </p>
     </div>
-    <AboutUs/>
-    <SuccessStories/>
-    <ContactUs/>
+    <AboutUs id="aboutUs"/>
+    <SuccessStories id="successStories"/>
+    <ContactUs id="contactUs"/>
     <FooterSection/>
   </div>
 </template>

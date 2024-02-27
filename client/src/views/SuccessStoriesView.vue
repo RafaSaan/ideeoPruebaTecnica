@@ -7,24 +7,58 @@
         <h2>{{ route.params.type }}</h2>
       </div>
       <div class="storieDescription">
-        <h3>imaginamos</h3>
-        <p>
-          Un logo en el que se mezclara el trabajo del estilista con la frescura que se vive
-          al adoptar un nuevo estilo, cuando nos reinventamos a través de un corte de cabello
-          y el impacto es absoluto.
-        </p>
-        <h3>visualizamos</h3>
-        <ul>
-          <li>La suavidad con la que debe tratarse a cada cliente</li>
-          <li>La confianza que pone en quien lo arregla</li>
-          <li>La mirada de quien se asombra ante nuestros cambios</li>
-          <li>Nuestra presencia en la zona</li>
-        </ul>
+        <div class="descriptionContainer">
+          <h3
+            data-aos="fade-in"
+            data-aos-delay="500"
+            data-aos-duration="500"
+            data-aos-easing="ease-in">
+            imaginamos
+          </h3>
+          <p
+            data-aos="fade-in"
+            data-aos-delay="600"
+            data-aos-duration="600"
+            data-aos-easing="ease-in">
+            Un logo en el que se mezclara el trabajo del estilista con la frescura que se vive
+            al adoptar un nuevo estilo, cuando nos reinventamos a través de un corte de cabello
+            y el impacto es absoluto.
+          </p>
+          <h3
+            data-aos="fade-in"
+            data-aos-delay="700"
+            data-aos-duration="700"
+            data-aos-easing="ease-in">
+            visualizamos
+          </h3>
+          <ul
+            data-aos="fade-in"
+            data-aos-delay="800"
+            data-aos-duration="800"
+            data-aos-easing="ease-in">
+            <li>La suavidad con la que debe tratarse a cada cliente</li>
+            <li>La confianza que pone en quien lo arregla</li>
+            <li>La mirada de quien se asombra ante nuestros cambios</li>
+            <li>Nuestra presencia en la zona</li>
+          </ul>
+        </div>
+        <img src="/BOCETOS ABSOLOOK.png" alt="BOCETOS ABSOLOOK">
       </div>
     </div>
     <div class="storieGridContainer">
-        <h3>presentamos</h3>
-        <p>Suaves líneas que transmiten confianza para quien decide cambiar su imagen,
+        <h3
+          data-aos="fade-in"
+          data-aos-delay="500"
+          data-aos-duration="500"
+          data-aos-easing="ease-in">
+          presentamos
+        </h3>
+        <p
+          data-aos="fade-in"
+          data-aos-delay="600"
+          data-aos-duration="600"
+          data-aos-easing="ease-in">
+          Suaves líneas que transmiten confianza para quien decide cambiar su imagen,
           con un estilo fresco y audaz que transmita seguridad a quien transforma absolutamente
           su look.
         </p>
@@ -43,10 +77,18 @@
         </div>
       </div>
     <div class="separator">
-      <blockquote>
+      <blockquote
+        data-aos="fade-in"
+        data-aos-delay="500"
+        data-aos-duration="500"
+        data-aos-easing="ease-in">
         “El significado de un logo deriva de la calidad de aquello que simboliza”
       </blockquote>
-      <span>-Paul Rand</span>
+      <span
+        data-aos="fade-in"
+        data-aos-delay="600"
+        data-aos-duration="600"
+        data-aos-easing="ease-in">-Paul Rand</span>
     </div>
     <ContactUs/>
     <FooterSection/>
@@ -114,12 +156,17 @@ function scrollToTop() {
   width: 100%
   background-color: #000
   color: #fff
-  padding: 4rem 2rem
+  padding: 6rem
+  display: flex
+.storieDescription > img 
+  width: 50%
+  box-shadow: 2rem -1rem 0 #fee74e
+  
 .storieGridContainer 
   display: flex
   flex-direction: column
   align-items: center
-.storieDescription > h3
+.descriptionContainer > h3
   font-size: 1.5rem
   font-weight: 600
   letter-spacing: 0.2rem
@@ -139,10 +186,11 @@ function scrollToTop() {
   text-align: center
   width: 60%
   font-size: 1.2rem
-.storieDescription > p
+.descriptionContainer > p
   color: #d6d6d6
   font-size: 1rem
   font-weight: 300
+  width: 70%
 ul
   color: #d6d6d6
   font-size: 1rem

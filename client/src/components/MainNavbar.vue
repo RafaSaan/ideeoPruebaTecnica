@@ -2,27 +2,34 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router';
 
+const emit = defineEmits(['goToSection'])
+
 const router = useRouter()
 const isMenuOpen = ref(false)
 const navList = [
-  { name: 'qué Hacemos', href: '' },
-  { name: 'Por qué mybrand', href: '' },
-  { name: 'Nosotros', href: '' },
-  { name: 'Casos de éxito', href: '' },
-  { name: 'Contacto', href: '' },
+  { name: 'qué Hacemos', id: 'wwa' },
+  { name: 'Por qué mybrand', id: 'wmb' },
+  { name: 'Nosotros', id: 'aboutUs' },
+  { name: 'Casos de éxito', id: 'successStories' },
+  { name: 'Contacto', id: 'contactUs' },
 ]
+
 </script>
 <template>
   <header>
     <nav class="navbar">
-      <a class="navbarLogo" @click="router.push('/')">
+      <a class="navbarLogo" @click="router.push('/');emit('goToSection','home')">
         <img class="imgLogo" src="/logo-mybrand.svg" alt="logo-mybrand" width="200">
       </a>
       <div class="navigationContainer">
         <ul class="navigation" :class="isMenuOpen ? 'isOpen' : ''">
           <li class="navItem" v-for="navItem, index in navList" :key="index">
-            <a class="navLink">{{ navItem.name }}</a>
+            <a  @click="emit('goToSection',navItem.id)" class="navLink">{{ navItem.name }}</a>
           </li>
+          <div class="iconsContactContainer">
+            <img src="/facebook-f-brands.svg" alt="facebook icon">
+            <img src="/instagram-brands.svg" alt="instagram icon">
+          </div>
         </ul>
       </div>
       <div class="menuIcon" @click="isMenuOpen = !isMenuOpen">
@@ -45,6 +52,7 @@ ul
   color: #000
   display: flex
   padding: 0.5rem 1rem
+  justify-content: space-between
 .navbarLogo 
   margin-left: 3rem
   margin-right: 1rem
@@ -72,12 +80,21 @@ ul
 .navigationContainer 
   display: flex
 .navLink
-  color: rgba(0,0,0,.4)
+  color: rgba(0,0,0,.7)
   padding: 0.5rem
   text-decoration: none
   cursor: pointer
+  font-weight: 500
 .navLink:hover
-  color: rgba(0,0,0,.6)
+  color: rgba(0,0,0)
+.iconsContactContainer
+  display: flex
+  gap: 2rem
+  margin-right: 2rem
+  align-items: center
+.iconsContactContainer > img
+  cursor: pointer
+  height: 1.6rem
 @media (max-width: 850px)
   .menuIcon
     display: block
@@ -92,6 +109,10 @@ ul
     background-color: #fff
   .navbarLogo
     margin-left: 0
+  .iconsContactContainer
+    margin: 1rem 0
+    justify-content: center
 .isOpen
   display: flex
+
 </style>

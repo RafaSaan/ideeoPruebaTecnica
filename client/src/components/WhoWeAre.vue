@@ -1,13 +1,22 @@
 <template>
   <section class="whoWeAreContainer">
-    <div class="whoWeAreInfo">
+    <div class="whoWeAreInfo"
+      data-aos="fade-in"
+      data-aos-delay="300"
+      data-aos-duration="300"
+      data-aos-easing="ease-in">
       <h2>Qué hacemos</h2>
       <p>Te ayudamos a crear la personalidad de tu empresa. Con nuestra asesoría 360 podrás
         tener identidad visual, tono de comunicación y lenguaje sin importar el tipo de negocio
         que tengas, te asesoramos en:
       </p>
     </div>
-    <div class="iconsSection">
+    <div
+      class="iconsSection"
+      data-aos="fade-in"
+      data-aos-delay="400"
+      data-aos-duration="300"
+      data-aos-easing="ease-in">
       <img v-for="icon, index in iconsList" :key="index" :src="icon.src" :alt="icon.alt">
     </div>
   </section>
