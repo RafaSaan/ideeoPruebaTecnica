@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('contact-us', [ContactUsController::class, 'contactUSPost']);
 Route::post('login', [AuthController::class, 'login']);
+Route::get('test', [TestController::class, 'testDB']);
 

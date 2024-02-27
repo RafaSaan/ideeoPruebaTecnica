@@ -10,6 +10,8 @@ services:
       - .:/app
     ports:
       - 8000:8000
+    depends_on:
+      - db
 
   queue:
     container_name: Queue
@@ -24,41 +26,17 @@ services:
     platform: linux/x86_64
     image: mysql:8.0
     container_name: Database
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_PASSWORD=root
-      - MYSQL_DATABASE=mydb
+      - MYSQL_DATABASE=ideeo
     volumes:
       - db:/var/lib/mysql
     ports:
       - 3307:3306
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: PhpMyAdmin
-    links:
-      - db
-    environment:
-      PMA_HOST: db
-      PMA_PORT: 3306
-      PMA_ARBITRARY: 1
-    restart: always
-    ports:
-      - 8081:80
-
-  mailpit:
-    image: axllent/mailpit
-    container_name: MailPit
-    ports:
-      - "1025:1025"
-      - "8025:8025"
-    networks:
-      - laravel-exa
-
-networks:
-  laravel-exa:
-    driver: bridge
-
 volumes:
   db:
     driver: local
+networks:
+  laravel-exa:
+    driver: bridge
