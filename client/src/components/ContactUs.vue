@@ -6,6 +6,7 @@
       </div>
       <div class="formContainer">
         <form class="form" @submit.prevent="sendContactForm">
+          <p v-if="isLoading" class="loadingMessage">Enviando datos...</p>
           <div class="inputContainer">
             <label for="name">Nombre</label>
             <input type="text" id="name" v-model="contactForm.name">
@@ -21,6 +22,7 @@
             <textarea id="message" rows="10" cols="50" v-model="contactForm.message"></textarea>
             <span v-if="error('message').hasError" class="error">{{ error('message').message }}</span>
           </div>
+          <span v-if="statusMessage">{{ statusMessage }}</span>
           <button class="btnSend">enviar</button>
         </form>
       </div>
@@ -31,23 +33,57 @@
 
 <script setup>
 import { ref } from 'vue'
+import { sendContactUsHelper } from '@/helpers/contactUsHelper'
 
 const errors = ref([])
+const isLoading = ref(false)
+const statusMessage = ref('')
 const contactForm = ref({
   name: '',
   email: '',
   message: ''
 })
 
-function sendContactForm() {
-  validateForm()
+async function sendContactForm() {
+  const hasErrors = validateForm()
+  if (hasErrors || isLoading.value) return
+  isLoading.value = true
+  const success = await sendContactUsHelper(contactForm.value)
+  isLoading.value = false
+  if (!success) {
+    errorContact()
+    return
+  }
+  successContact()
+}
+
+function errorContact () {
+  statusMessage.value = 'Lo siento, ha ocurrido un error'
+  setTimeout(() => {
+    statusMessage.value = ''
+  }, 2000);
+}
+function successContact () {
+  statusMessage.value = '¡Gracias por contactarnos!'
+  contactForm.value = {
+    name: '',
+    email: '',
+    message: ''
+  }
+  setTimeout(() => {
+    statusMessage.value = ''
+  }, 2000);
 }
 
 function validateForm () {
+  let hasErrors = false
   errors.value = []
   if (contactForm.value.name === '') errors.value['name'] = 'El nombre es requerido'
   if (contactForm.value.email === '') errors.value['email'] = 'El email es requerido'
   if (contactForm.value.message === '') errors.value['message'] = 'El mensaje es requerido'
+    // eslint-disable-next-line no-unused-vars
+  for (const property in errors.value) { hasErrors = true }
+  return hasErrors
 }
 
 function error(key) {
@@ -145,6 +181,9 @@ textarea:focus-within
 .error 
   font-size: 12px
   color: #FF0000
+.loadingMessage
+  text-align: center
+  font-size: 15px
 
 @media (max-width: 1100px)
   .contactUsContainer
