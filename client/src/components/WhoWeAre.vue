@@ -47,4 +47,13 @@ const iconsList = [
   align-content: center
   margin-top: 1rem
   padding-bottom: 3rem
+@media (max-width: 900px) 
+  .iconsSection > img
+    height: 10rem
+  .whoWeAreInfo > p
+    width: 90%
+@media (max-width: 600px) 
+  .iconsSection
+    flex-direction: column
+
 </style>

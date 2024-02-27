@@ -1,6 +1,7 @@
 <script setup>
+import { ref } from 'vue'
+const isMenuOpen = ref(false)
 const navList = [
-  { name: 'inicio', href: '' },
   { name: 'qué Hacemos', href: '' },
   { name: 'Por qué mybrand', href: '' },
   { name: 'Nosotros', href: '' },
@@ -15,11 +16,14 @@ const navList = [
           <img class="imgLogo" src="/logo-mybrand.svg" alt="logo-mybrand" width="200">
       </a>
       <div class="navigationContainer">
-        <ul class="navigation">
+        <ul class="navigation" :class="isMenuOpen ? 'isOpen' : ''">
           <li class="navItem" v-for="navItem, index in navList" :key="index">
             <a class="navLink">{{ navItem.name }}</a>
           </li>
         </ul>
+      </div>
+      <div class="menuIcon" @click="isMenuOpen = !isMenuOpen">
+        <img src="/hamburgerMenu.svg" alt="menu icon">
       </div>
     </nav>
   </header>
@@ -41,13 +45,19 @@ ul
 .navbarLogo 
   margin-left: 3rem
   margin-right: 1rem
+  padding: 0.3125rem 0
+.menuIcon
+  color: #000
+  width: 2rem
   padding-top: 0.3125rem
-  padding-bottom: 0.3125rem
+  cursor: pointer
+  display: none
 .navigation 
   display: flex
   list-style: none
   align-content: center
   letter-spacing: .5px
+  flex-direction: row
 .navItem
   text-transform: uppercase
   padding: 0 1.2rem
@@ -64,4 +74,20 @@ ul
   cursor: pointer
 .navLink:hover
   color: rgba(0,0,0,.6)
+@media (max-width: 850px)
+  .menuIcon
+    display: block
+  .navbar
+    justify-content: space-between
+  .navigation
+    display: none
+    flex-direction: column
+    position: absolute
+    top: 4rem
+    right: 2rem
+    background-color: #fff
+  .navbarLogo
+    margin-left: 0
+.isOpen
+  display: flex
 </style>

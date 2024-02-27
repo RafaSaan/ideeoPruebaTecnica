@@ -97,4 +97,20 @@ p
   margin: 6rem 0
 .secondSeparator > p > span
   font-weight: bold
+
+@media (max-width: 1000px) 
+  .mainImg
+    display: none
+  .mainText 
+    display: flex
+    flex-direction: column
+    align-items: center
+  .mainText > h1
+    font-size: 2.2rem
+    width: 100%
+  .subtitle
+    width: 100%
+  .separator > p
+    font-size: 1.5rem
+
 </style>

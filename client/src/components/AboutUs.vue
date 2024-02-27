@@ -48,4 +48,10 @@
 .aboutUsImg > img
   width: 27rem
   box-shadow: 2.8rem -1.2rem 0px #fee74e
+
+@media (max-width: 900px) 
+  .aboutUsImg
+    display: none
+  .aboutUsInfo > p
+    max-width: 100%
 </style>

@@ -145,4 +145,21 @@ textarea:focus-within
 .error 
   font-size: 12px
   color: #FF0000
+
+@media (max-width: 1100px)
+  .contactUsContainer
+    flex-direction: column
+    align-items: center
+    width: 90%
+  .formContainer
+    width: 80%
+  .contactUsImage
+    width: 80%
+  .contactUsImage > p
+    top: 1rem
+    left: 1rem
+@media (max-width: 450px)
+  .contactUsImage > p
+    font-size: 1.9rem
+
 </style>

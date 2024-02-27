@@ -50,5 +50,9 @@ const succesStoriesList = [
   font-size: 1rem
   font-weight: 500
   margin: 0
-
+@media (max-width: 900px) 
+  .cases 
+    flex-wrap: wrap
+  .storieItem > img
+    height: 20rem
 </style>

@@ -46,4 +46,7 @@ footer
   gap: 3rem
 .iconsContactContainer > img
   cursor: pointer
+@media (max-width: 700px)
+  footer
+    flex-direction: column
 </style>
