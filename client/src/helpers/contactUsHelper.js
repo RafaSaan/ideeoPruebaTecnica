@@ -1,4 +1,4 @@
-const api = 'http://127.0.0.1:8000/api'
+const api = import.meta.env.VITE_API_ENDPOINT
 
 export const sendContactUsHelper = async (contactData) => {
   let success = false

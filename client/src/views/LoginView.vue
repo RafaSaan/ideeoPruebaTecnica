@@ -14,7 +14,7 @@
           </div>
           <div class="inputContainer">
             <label for="password">Contraseña</label>
-            <input id="password" type="text" autocomplete="off" v-model="credentials.password">
+            <input id="password" type="password" autocomplete="off" v-model="credentials.password">
             <span class="error" v-if="error('password').hasError">{{ error('password').message }}</span>
           </div>
           <button class="btnSend" v-if="!isLoading">login</button>
