@@ -1,4 +1,5 @@
 import './assets/main.css'
+import 'primeicons/primeicons.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
@@ -9,7 +10,5 @@ import 'aos/dist/aos.css'
 const app = createApp(App)
 
 app.use(router)
-// app.AOS = new AOS.init({ disable: "phone" });
-
 app.use(AOS)
 app.mount('#app')

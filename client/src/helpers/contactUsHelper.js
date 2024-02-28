@@ -17,3 +17,29 @@ export const sendContactUsHelper = async (contactData) => {
   }
   return success
 }
+export const getContactRequestsHelper = async () => {
+  let success = false
+  let data = []
+  const prefix = `grp_token_${import.meta.env.VITE_FOLDER_PATH}`.replace('/', '_')
+  const token = sessionStorage[prefix]
+  try {
+    const url = `${api}/contactsRequest`
+    await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+        Authorization:`Bearer ${token}`,
+        Accept: 'application/json'
+      }
+      })
+      .then(response => response.json()) 
+      .then(json => {
+        data = json.contactRequests.data
+        console.log(json)
+      });
+    success = true
+  } catch {
+    success = false
+  }
+  return {success, data}
+}

@@ -8,8 +8,6 @@ import FooterSection from '@/components/FooterSection.vue';
 
 function goToSection(id) {
   const position = document.getElementById(id).offsetTop;
-  console.log(position, id)
-  // smooth scroll
   window.scrollTo({ top: position, behavior: "smooth" });  
 }
 </script>

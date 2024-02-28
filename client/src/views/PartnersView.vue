@@ -1,0 +1,132 @@
+<template>
+  <div class="contactUsAdmin">
+    <div class="headerView">
+      <h3 class="currentRoute">Dashboard > colaboradores</h3>
+    </div>
+    <div class="contactUsTable">
+      <div class="headerTable">
+        <h3>Colaboradores</h3>
+        <div class="paginationSection">
+          <span class="paginationBtn"> <span class="pi pi-angle-left"></span></span>
+          <div class="paginationItems">
+            <div class="paginationItem select">1</div>
+            <div class="paginationItem">1</div>
+            <div class="paginationItem">1</div>
+            <div class="paginationItem">1</div>
+          </div>
+          <span class="paginationBtn"><span class="pi pi-angle-right"></span></span>
+        </div>
+      </div>
+
+      <div class="rowsSection">
+        <div class="rowsFormat">
+          <span class="id">id</span>
+          <span class="name">Nombre</span>
+          <span class="email">Correo electronico</span>
+          <span class="options"></span>
+        </div>
+        <div class="rowsContainer">
+          <div class="row">
+            <span class="id">id</span>
+            <span class="name">Nombre</span>
+            <span class="email">Correo electronico</span>
+            <span class="options">
+              <span class="pi pi-trash"></span>
+              <span class="pi pi-pencil"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+
+</script>
+
+<style lang="sass" scoped>
+.contactUsAdmin
+  color: #000
+h3 
+  margin: 0
+  font-weight: 600
+.headerView
+  background-color: #fff
+  height: 3rem
+  display: flex
+  align-items: center
+  padding: 0 1rem
+.currentRoute
+  font-size: 14px
+  font-weight: 600
+.contactUsTable
+  width: 100%
+  background-color: #fff
+  border-radius: 12px
+  margin: 2rem 0
+.headerTable
+  display: flex
+  justify-content: space-between
+.headerTable > h3
+  padding: 1rem
+.paginationSection
+  display: flex
+  align-items: center
+  padding: 0 1rem
+
+.paginationBtn
+  width: 25px
+  height: 25px
+  border-radius: 5px
+  border: 1px solid #EAEFF4
+  display: flex
+  justify-content: center
+  align-items: center
+  font-size: 18px
+  cursor: pointer
+.paginationItem
+  font-size: 16px
+  color: #74879B
+  width: 28px
+  height: 28px
+  border-radius: 5px
+  border: 1px solid #EAEFF4
+  display: flex
+  justify-content: center
+  align-items: center
+  cursor: pointer
+.select
+  background-color: #4759E4
+  color: #fff
+.paginationItems
+  display: flex
+  gap: .5rem
+  margin: 0 .5rem
+  border: none
+.rowsFormat
+  width: 100%
+  display: flex
+  align-items: center
+  background-color: #F8FAFF
+  text-transform: uppercase
+  font-weight: 500
+  font-size: 15px
+  color: #62666A
+  height: 40px
+.id
+  width: 5%
+  margin-left: .5rem
+.name
+  width: 20%
+.email
+  width: 20%
+.rowsContainer
+  display: flex
+  flex-direction: column
+.row
+  display: flex
+  align-items: center
+  min-height: 40px
+  font-size: 14px
+</style>
