@@ -17,9 +17,7 @@ vendor/**/Tests*
 **.gitignore
 **.gitattributes
 **.sass-cache
-*.env*
 
-*.config.js
 ?ulpfile.js
 ?untfile.js
 package.json
