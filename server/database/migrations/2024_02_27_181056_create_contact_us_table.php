@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->text('message');
-            $table->point('coordinates')->nullable();
+            $table->string('coordinates')->nullable();
             $table->timestamps();
         });
     }

@@ -31,6 +31,7 @@ class ContactUsController extends Controller
                 'name' => 'required',
                 'email' => 'required|email',
                 'message' => 'required',
+                'coordinates' => 'nullable',
                 ]);
             ContactUS::create($request->all());
             return response()->json( [
