@@ -22,7 +22,7 @@ class AuthController extends Controller
             if (Auth::attempt($credentials)){
                 auth()->loginUsingId( User::where( 'email',  $credentials['email'] )->first()->id );
                 $user = auth()->user();
-                $token = $user->createToken('grp_session')->plainTextToken;
+                $token = $user->createToken('grp_session')->accessToken;
                 if ($token) {
                     return response()->json( [
                         'authenticated'             => true,

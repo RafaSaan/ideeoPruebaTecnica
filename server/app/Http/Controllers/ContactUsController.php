@@ -7,6 +7,23 @@ use Illuminate\Http\Request;
 
 class ContactUsController extends Controller
 {
+    public function getContactRequest(Request $request)
+    {
+        try {
+            $rowPerPage = $request->input('rowsPerPage') ? $request->input('rowsPerPage') : 15;
+            $items = ContactUS::paginate($rowPerPage);
+            return response()->json( [
+                'success' => true,
+                'contactRequests' => $items
+            ], 200 );
+        }
+        catch ( \Exception $e ) {
+            return response()->json( [
+                'success' => false,
+                'message' => $e->getMessage()
+            ], 500 );
+        }
+    }
     public function contactUSPost(Request $request)
     {
         try {
