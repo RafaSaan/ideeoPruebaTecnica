@@ -28,14 +28,35 @@
           <span class="options"></span>
         </div>
         <div class="rowsContainer">
-          <div class="row" v-for="request in contactRequests" :key="request.id">
-            <span class="id">{{ request.id }}</span>
-            <span class="name">{{ request.name }}</span>
-            <span class="email">{{request.email}}</span>
-            <span class="message">{{ request.message }}</span>
-            <span class="coordinates">{{ request.coordinates }}</span>
-            <span class="options"><span class="pi pi-trash"></span></span>
+          <div class="row" v-if="isLoading">
+            <div class="id">
+              <LoadingSkeleton :width="50" :height="40"/>
+            </div>
+            <div class="name">
+              <LoadingSkeleton :height="40"/>
+            </div>
+            <div class="email">
+              <LoadingSkeleton :height="40"/>
+            </div>
+            <div class="message">
+              <LoadingSkeleton :height="40"/>
+            </div>
+            <div class="coodinates">
+              <LoadingSkeleton :height="40"/>
+            </div>
+
           </div>
+          <div class="">
+            <div class="row" v-for="request in contactRequests" :key="request.id">
+              <span class="id">{{ request.id }}</span>
+              <span class="name">{{ request.name }}</span>
+              <span class="email">{{request.email}}</span>
+              <span class="message">{{ request.message }}</span>
+              <span class="coordinates">{{ request.coordinates }}</span>
+              <span class="options"><span class="pi pi-trash"></span></span>
+            </div>
+          </div>
+          <div class="noDataMessage" v-if="!isLoading && !contactRequests.length">No encontré nada para ti :( </div>
         </div>
       </div>
     </div>
@@ -45,6 +66,7 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import {getContactRequestsHelper} from '@/helpers/contactUsHelper'
+import LoadingSkeleton from '@/components/LoadingSkeleton.vue';
 const contactRequests = ref([])
 const isLoading = ref(false)
 
@@ -56,7 +78,7 @@ async function getContactRequests() {
   isLoading.value = true
   const {success, data} = await getContactRequestsHelper()
   contactRequests.value = data
-  isLoading.value = true
+  isLoading.value = false
 }
 
 
@@ -151,4 +173,8 @@ h3
   min-height: 50px
   font-size: 14px
   border-bottom: 1px solid #EFF3F7
+.noDataMessage
+  text-align: center
+  padding: 2rem
+  font-weight: 500
 </style>
