@@ -34,8 +34,8 @@ Abrimos el archivo .env para asegurarnos que las variables de entorno de la base
 ```
 
 ### NOTAAA
-  #### si estas en windows y tienes el puerto 3306 ocupado, desactivalo xfa para no crear un conflicto con docker para mysql
-  abre cdm como administrador y ejecuta alguno de los dos comandos
+  #### si tienes el puerto 3306 ocupado, desactivalo xfa para no crear un conflicto con docker para mysql
+  si estas en windows: abre cdm como administrador y ejecuta alguno de los dos comandos
 ```sh
 mysqld stop ó net stop MySQL80
 ```
