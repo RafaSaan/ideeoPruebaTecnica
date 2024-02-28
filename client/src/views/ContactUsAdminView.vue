@@ -10,9 +10,9 @@
           <span class="paginationBtn"> <span class="pi pi-angle-left"></span></span>
           <div class="paginationItems">
             <div class="paginationItem select">1</div>
-            <div class="paginationItem">1</div>
-            <div class="paginationItem">1</div>
-            <div class="paginationItem">1</div>
+            <div class="paginationItem">2</div>
+            <div class="paginationItem">3</div>
+            <div class="paginationItem">4</div>
           </div>
           <span class="paginationBtn"><span class="pi pi-angle-right"></span></span>
         </div>
