@@ -25,17 +25,17 @@ Abrimos otra prestaña o nos cambiamos a la carpeta 'server'
 
 Abrimos el archivo .env para asegurarnos que las variables de entorno de la base de datos sean las que tienen como comentario 'docker'
 
-Estando en la carpeta le decimos a docker que nos cree la imagen que ya configuramos
+Estando en la carpeta 'server' le decimos a docker que nos cree la imagen que ya configuramos
 
 ```sh
 docker compose build
 ```
-Una vez creada, leventamos el contanedor
+Una vez creada, leventamos el contenedor
 
 ```sh
 docker compose up -d
 ```
-se leventara el contenedor y podremos acceder alas funciones del back
+se leventara el contenedor y podremos acceder a las funciones del back
 
 
 ### Sin Docker:
@@ -53,14 +53,14 @@ npm run dev
 ```
 
 ### Back end: 
-Ir a la carpeta 'server' e instalar las dependencias
-
 Abrimos el archivo .env para asegurarnos que las variables de entorno de la base de datos sean las que tienen como comentario 'desarrollo'
+
+Ir a la carpeta 'server' e instalar las dependencias
 
 ```sh
 composer install
 ```
-Una vez instaladas iniciamos ejecutamos migaciones
+Una vez instaladas ejecutamos migaciones
 ```sh
 php artisan migrate
 ```
