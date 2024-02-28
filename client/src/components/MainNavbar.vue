@@ -96,7 +96,7 @@ ul
 .iconsContactContainer > img
   cursor: pointer
   height: 1.6rem
-@media (max-width: 850px)
+@media (max-width: 1000px)
   .menuIcon
     display: block
   .navbar

@@ -73,7 +73,6 @@
             <img :src="listImages[4].download_url" :alt="'imagen de' +listImages[4].author">
             <img :src="listImages[5].download_url" :alt="'imagen de' +listImages[5].author">
           </div>
-          grid
         </div>
       </div>
     <div class="separator">
@@ -159,9 +158,8 @@ function scrollToTop() {
   padding: 6rem
   display: flex
 .storieDescription > img 
-  width: 50%
   box-shadow: 2rem -1rem 0 #fee74e
-  
+  height: 19rem
 .storieGridContainer 
   display: flex
   flex-direction: column
@@ -221,4 +219,10 @@ blockquote
   grid-template-columns: repeat(2, 1fr)
 .groupImages > img
   width: 100%
+@media (max-width: 1100px)
+  .storieDescription > img 
+    display: none
+@media (max-width: 700px)
+  .storieDescription
+    padding: 6rem 2rem
 </style>
