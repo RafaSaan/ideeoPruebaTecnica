@@ -27,4 +27,9 @@ body
 .mainDisplay
   width: 100%
   padding: 1rem 2rem
+@media (max-width: 1100px)
+  .dashboardView
+    flex-direction: column
+    align-items: center
+
 </style>

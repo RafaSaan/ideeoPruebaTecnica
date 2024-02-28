@@ -29,20 +29,20 @@
         </div>
         <div class="rowsContainer">
           <div class="row" v-if="isLoading">
-            <div class="id">
-              <LoadingSkeleton :width="50" :height="40"/>
+            <div class="id skeletonContainer">
+              <LoadingSkeleton :width="40" :height="30"/>
             </div>
             <div class="name">
-              <LoadingSkeleton :height="40"/>
+              <LoadingSkeleton :width="150" :height="30"/>
             </div>
             <div class="email">
-              <LoadingSkeleton :height="40"/>
+              <LoadingSkeleton :width="150" :height="30"/>
             </div>
             <div class="message">
-              <LoadingSkeleton :height="40"/>
+              <LoadingSkeleton :width="150" :height="30"/>
             </div>
             <div class="coodinates">
-              <LoadingSkeleton :height="40"/>
+              <LoadingSkeleton :width="150" :height="30"/>
             </div>
 
           </div>
@@ -167,6 +167,7 @@ h3
   display: flex
   flex-direction: column
 .row
+  width: 100%
   display: flex
   align-items: center
   min-height: 50px
@@ -176,4 +177,20 @@ h3
   text-align: center
   padding: 2rem
   font-weight: 500
+.skeletonContainer 
+  margin: 0 .5rem
+@media (max-width: 1300px)
+  .row
+    overflow: auto
+  .name
+    width: 200px
+  .email
+    width: 200px
+  .message
+    width: 200px
+  .coordinates
+    width: 200px
+@media (max-width: 1150px)
+  .contactUsTable
+    overflow-x: scroll
 </style>

@@ -30,18 +30,18 @@
           <span class="options"></span>
         </div>
         <div class="rowsContainer">
-          <div class="row" v-if="isLoading">
+          <div class="row skeletonContainer" v-if="isLoading">
             <div class="id">
-              <LoadingSkeleton :width="50" :height="40"/>
+              <LoadingSkeleton :width="50" :height="30"/>
             </div>
             <div class="name">
-              <LoadingSkeleton :height="40"/>
+              <LoadingSkeleton :height="30"/>
             </div>
             <div class="email">
-              <LoadingSkeleton :height="40"/>
+              <LoadingSkeleton :height="30"/>
             </div>
           </div>
-          <form class="row" v-if="isUpdateOrCreate" @submit.prevent="">
+          <form class="row createContainer" v-if="isUpdateOrCreate" @submit.prevent="">
             <div class="id inputContainer">
             </div>
             <div class="name inputContainer">
@@ -57,7 +57,7 @@
               <input type="password" id="partnertPassword" autocomplete="new-password" v-model="partner.password" placeholder="contraseña temporal">
               <span class="error" v-if="error('password').hasError">{{ error('password').message }}</span>
             </div>
-            <div class="">
+            <div class="optionsContainer">
               <span class="pi pi-check optionIcon" v-if="!isLoadingPartner" @click="updateOrCreatePartner"></span>
               <span class="pi pi-spin pi-spinner optionIcon" v-else></span>
               <span class="pi pi-times optionIcon" @click="cancelCreatePartner"></span>
@@ -299,7 +299,7 @@ h3
   padding: 2rem
   font-weight: 500
 input
-  width: 225px
+  width: 200px
   border: none
   padding: 0.375rem 0.75rem
   font-size: 1rem
@@ -322,12 +322,39 @@ input:focus-within
   color: #FF0000
 .optionIcon
   font-size: 1.3rem
-  margin: 0 1rem
+  margin: 0 .8rem
   cursor: pointer
 .optionsRow
   display: flex
+  flex-direction: row
   gap: 1rem
   font-size: 1.1rem
 .optionsRow > span
   cursor: pointer
+.skeletonContainer 
+  padding: .5rem
+  gap:.5rem
+.createContainer
+  gap: .5rem
+.optionsContainer
+  width: 110px
+  display: flex
+  flex-direction: row
+@media (max-width: 1300px)
+  .row
+    overflow: auto
+  .name
+    width: 200px
+  .email
+    width: 200px
+  .message
+    width: 200px
+  .coordinates
+    width: 200px
+@media (max-width: 1000px)
+  imput
+@media (max-width: 650px)
+  .tableActionsContainer
+    flex-direction: column
+    padding: .5rem 0
 </style>
