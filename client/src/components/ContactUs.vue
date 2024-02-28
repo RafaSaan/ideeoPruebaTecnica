@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { sendContactUsHelper } from '@/helpers/contactUsHelper'
 
 const errors = ref([])
@@ -42,6 +42,10 @@ const contactForm = ref({
   name: '',
   email: '',
   message: ''
+})
+
+onMounted(() => {
+  getLocation()
 })
 
 async function sendContactForm() {
@@ -55,6 +59,18 @@ async function sendContactForm() {
     return
   }
   successContact()
+}
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(getPosition);
+  } else {
+    alert("Geolocation is not supported by this browser.")
+  }
+}
+function getPosition(position) {
+  contactForm.value.coordinates = `${position.coords.latitude}, ${position.coords.longitude}`
+  localStorage.setItem("coordinates", contactForm.value.coordinates);
 }
 
 function errorContact () {

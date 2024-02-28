@@ -36,7 +36,6 @@ export const getContactRequestsHelper = async () => {
       .then(response => response.json()) 
       .then(json => {
         data = json.contactRequests.data
-        console.log(json)
       });
     success = true
   } catch {

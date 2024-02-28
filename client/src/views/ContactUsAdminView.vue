@@ -46,17 +46,16 @@
             </div>
 
           </div>
-          <div class="">
+          <div class="noDataMessage" v-if="!isLoading && !contactRequests.length">No encontré nada para ti :( </div>
+          <div class="" v-else>
             <div class="row" v-for="request in contactRequests" :key="request.id">
               <span class="id">{{ request.id }}</span>
               <span class="name">{{ request.name }}</span>
               <span class="email">{{request.email}}</span>
               <span class="message">{{ request.message }}</span>
               <span class="coordinates">{{ request.coordinates }}</span>
-              <span class="options"><span class="pi pi-trash"></span></span>
             </div>
           </div>
-          <div class="noDataMessage" v-if="!isLoading && !contactRequests.length">No encontré nada para ti :( </div>
         </div>
       </div>
     </div>
