@@ -1,5 +1,9 @@
 ## Levantamiento de sistema
 
+para el login ya tengo un usuaio creado, las credenciales son: 
+email: rsaan02@gmail.com
+pass: 12345678
+
 ### Con Docker:
 ### Front:
 Despues de clonar el repo nos vamos a la carpeta 'client'
@@ -48,9 +52,15 @@ docker compose build
 Una vez creada, leventamos el contenedor
 
 ```sh
-docker compose up -d
+docker compose up
 ```
 se leventara el contenedor y podremos acceder a las funciones del back
+
+### NOTAAA
+  #### si te da un error con el nombre de la base de datos, al hacer el php artisan migrate, baja el contenedor y vuelve a levantarlo
+```sh
+docker compose up
+```
 
 
 ## Sin Docker:
