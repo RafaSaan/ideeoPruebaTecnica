@@ -10,8 +10,9 @@ export const sendContactUsHelper = async (contactData) => {
       headers: {"Content-type": "application/json; charset=UTF-8"}
       })
       .then(response => response.json()) 
-      .then(json => console.log(json));
-    success = true
+      .then(json => {
+        success = json.success
+      });
   } catch {
     success = false
   }
