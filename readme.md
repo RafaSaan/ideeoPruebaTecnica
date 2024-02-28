@@ -21,9 +21,17 @@ se leventara el contenedor y podremos acceder al front
 
 
 ### Back:
-Abrimos otra prestaña o nos cambiamos a la carpeta 'server'
 
 Abrimos el archivo .env para asegurarnos que las variables de entorno de la base de datos sean las que tienen como comentario 'docker'
+
+```sh
+  DB_CONNECTION=mysql
+  DB_HOST=mysql_db
+  DB_PORT=3306
+  DB_DATABASE=ideeo
+  DB_USERNAME=root
+  DB_PASSWORD=root
+```
 
 ### NOTAAA
   #### si estas en windows y tienes el puerto 3306 ocupado, desactivalo xfa para no crear un conflicto con docker para mysql
@@ -31,7 +39,7 @@ Abrimos el archivo .env para asegurarnos que las variables de entorno de la base
 ```sh
 mysqld stop ó net stop MySQL80
 ```
-
+Abrimos la carpeta 'server'
 Estando en la carpeta 'server' le decimos a docker que nos cree la imagen que ya configuramos
 
 ```sh
@@ -59,8 +67,20 @@ Una vez instaladas iniciamos el front
 npm run dev
 ```
 
-### Back end: 
+### Back end:
+Necesitamos la base de datos 'ideeo' asi que primero tenemos que crearla
+
+Nos vamos a la carpeta 'server'
 Abrimos el archivo .env para asegurarnos que las variables de entorno de la base de datos sean las que tienen como comentario 'desarrollo'
+
+```sh
+  DB_CONNECTION=mysql
+  DB_HOST=127.0.0.1
+  DB_PORT=3306
+  DB_DATABASE=ideeo
+  DB_USERNAME=root
+  DB_PASSWORD=pass
+```
 
 Ir a la carpeta 'server' e instalar las dependencias
 
